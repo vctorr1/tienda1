@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:another_carousel_pro/another_carousel_pro.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -19,6 +21,8 @@ class _MyHomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        //Elevacion de la barra superior sobre el fondo
+        elevation: 0.1,
         backgroundColor: Colors.red,
         title: Text('Vaca de Quentas', style: TextStyle(color: Colors.white)),
         actions: <Widget>[
@@ -66,7 +70,58 @@ class _MyHomePageState extends State<HomePage> {
                 title: Text('Inicio'),
                 leading: Icon(Icons.home),
               ),
-            )
+            ),
+
+            InkWell(
+              onTap: () {},
+              child: ListTile(
+                title: Text('Perfil'),
+                leading: Icon(Icons.person),
+              ),
+            ),
+
+            InkWell(
+              onTap: () {},
+              child: ListTile(
+                title: Text('Pedidos'),
+                leading: Icon(Icons.shopping_basket),
+              ),
+            ),
+
+            InkWell(
+              onTap: () {},
+              child: ListTile(
+                title: Text('Categorías'),
+                leading: Icon(Icons.dashboard),
+              ),
+            ),
+
+            InkWell(
+              onTap: () {},
+              child: ListTile(
+                title: Text('Favoritos'),
+                leading: Icon(Icons.favorite),
+              ),
+            ),
+
+            //Separacion entre categorias
+            Divider(),
+
+            InkWell(
+              onTap: () {},
+              child: ListTile(
+                title: Text('Opciones'),
+                leading: Icon(Icons.settings, color: Colors.blue),
+              ),
+            ),
+
+            InkWell(
+              onTap: () {},
+              child: ListTile(
+                title: Text('Sobre mí'),
+                leading: Icon(Icons.help, color: Colors.red),
+              ),
+            ),
           ],
         ),
       ),
