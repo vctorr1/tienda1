@@ -63,7 +63,20 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-
+  assets:
+    - imagenes/productos/quenta/Archicos_quenta_nuevos_collar_multicolor_cereza.jpg
+    - imagenes/productos/quenta/Archicos_quenta_nuevos_L_nell.jpg
+    - imagenes/productos/quenta/Archicos_quenta_nuevos_margarita_nell.jpg
+    - imagenes/productos/quenta/Archicos_quenta_nuevos_mari_collar_caras.jpg
+    - imagenes/productos/quenta/Archicos_quenta_nuevos_maria_corazon.jpg
+    - imagenes/productos/quenta/Archicos_quenta_nuevos_maria_estrellas.jpg
+    - imagenes/productos/quenta/Archicos_quenta_nuevos_maria_estrellas_collar.jpg
+    - imagenes/productos/quenta/Archicos_quenta_nuevos_maria_pulsera_zyn.jpg
+    # Ahora viene imagenes de las categorias
+    - imagenes/categorias/shirt.png
+    - imagenes/categorias/diamond.png
+    - imagenes/categorias/photo.png
+    - imagenes/categorias/brush.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

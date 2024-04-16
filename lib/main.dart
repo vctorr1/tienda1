@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 
+//Imports de carpeta componentes
+import 'package:tienda1/componentes/listview_horizontal.dart';
+import 'package:tienda1/componentes/poductos.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -19,12 +22,37 @@ class HomePage extends StatefulWidget {
 class _MyHomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    //Widget para el carrusel de productos
+    Widget carrusel_imagen = new Container(
+      height: 200,
+      child: AnotherCarousel(
+        boxFit: BoxFit.cover,
+        images: [
+          AssetImage(
+              'imagenes/productos/quenta/Archicos_quenta_nuevos_collar_multicolor_cereza.jpg'),
+          AssetImage(
+              'imagenes/productos/quenta/Archicos_quenta_nuevos_L_nell.jpg'),
+          AssetImage(
+              'imagenes/productos/quenta/Archicos_quenta_nuevos_margarita_nell.jpg'),
+          AssetImage(
+              'imagenes/productos/quenta/Archicos_quenta_nuevos_mari_collar_caras.jpg'),
+          AssetImage(
+              'imagenes/productos/quenta/Archicos_quenta_nuevos_maria_corazon.jpg'),
+          AssetImage(
+              'imagenes/productos/quenta/Archicos_quenta_nuevos_maria_estrellas.jpg'),
+        ],
+        animationCurve: Curves.fastOutSlowIn,
+        animationDuration: Duration(milliseconds: 1000),
+        indicatorBgPadding: 6,
+      ),
+    );
+
     return Scaffold(
       appBar: AppBar(
         //Elevacion de la barra superior sobre el fondo
         elevation: 0.1,
         backgroundColor: Colors.red,
-        title: Text('Vaca de Quentas', style: TextStyle(color: Colors.white)),
+        title: Text('Múdez', style: TextStyle(color: Colors.white)),
         actions: <Widget>[
           IconButton(
             icon: Icon(
@@ -122,8 +150,42 @@ class _MyHomePageState extends State<HomePage> {
                 leading: Icon(Icons.help, color: Colors.red),
               ),
             ),
+
+            InkWell(
+              onTap: () {},
+              child: ListTile(
+                title: Text('Otros trabajos'),
+                leading: Icon(Icons.brush, color: Colors.red),
+              ),
+            ),
           ],
         ),
+      ),
+
+      //Cerpo para colocar el carrusel
+      body: ListView(
+        children: [
+          carrusel_imagen,
+          //Padding para alejar el texto de los bordes
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Text('Categorias'),
+          ),
+
+          //Lista horizontal llamada desde componentes
+          ListaHorizontal(),
+
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Text('Productos Recientes'),
+          ),
+
+          //Cuerpo de productos recientes
+          Container(
+            height: 320,
+            child: Productos(),
+          )
+        ],
       ),
     );
   }
