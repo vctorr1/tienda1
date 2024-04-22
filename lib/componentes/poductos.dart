@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tienda1/paginas/detalles_producto.dart';
 
 class Productos extends StatefulWidget {
   const Productos({super.key});
@@ -41,7 +42,19 @@ class _MyWidgetState extends State<Productos> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return GridView.builder(
+      itemCount: lista_productos.length,
+      gridDelegate:
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      itemBuilder: (BuildContext context, int index) {
+        return ProdIndividual(
+          nombre_producto: lista_productos[index]["nombre"],
+          foto_producto: lista_productos[index]["foto"],
+          precio_antiguo: lista_productos[index]["precio_antiguo"],
+          precio: lista_productos[index]["precio"],
+        );
+      },
+    );
   }
 }
 
@@ -63,6 +76,44 @@ class ProdIndividual extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Card(
+      child: Hero(
+        tag: nombre_producto,
+        child: Material(
+          child: InkWell(
+            //Usamos función de flecha para acortar el código a escribir, context es la ruta actuasl del widget en la pagina, push indica que vamos a poner algo encima
+            onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => DetallesProducto())),
+            child: GridTile(
+              footer: Container(
+                color: Colors.white70,
+                child: ListTile(
+                  leading: Text(
+                    nombre_producto,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  title: Text(
+                    "$precio€",
+                    style: TextStyle(
+                        color: Colors.red, fontWeight: FontWeight.w800),
+                  ),
+                  subtitle: Text(
+                    "$precio_antiguo€",
+                    style: TextStyle(
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w800,
+                        decoration: TextDecoration.lineThrough),
+                  ),
+                ),
+              ),
+              child: Image.asset(
+                foto_producto,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
