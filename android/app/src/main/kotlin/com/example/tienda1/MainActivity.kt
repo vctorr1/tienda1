@@ -1,4 +1,4 @@
-package vitor.rios.tienda1
+package com.example.tienda1
 
 import io.flutter.embedding.android.FlutterActivity
 

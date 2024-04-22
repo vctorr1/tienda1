@@ -11,7 +11,7 @@ class Productos extends StatefulWidget {
 class _MyWidgetState extends State<Productos> {
   var lista_productos = [
     {
-      "nombre": "Collar",
+      "nombre": "Collar multicolor",
       "foto":
           "imagenes/productos/quenta/Archicos_quenta_nuevos_collar_multicolor_cereza.jpg",
       "precio_antiguo": 30,
@@ -82,30 +82,35 @@ class ProdIndividual extends StatelessWidget {
         child: Material(
           child: InkWell(
             //Usamos función de flecha para acortar el código a escribir, context es la ruta actuasl del widget en la pagina, push indica que vamos a poner algo encima
-            onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => DetallesProducto())),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => DetallesProducto(
+                      //Parametros para el constructor de la pagina de producto
+                      nombre_producto_detalle: nombre_producto,
+                      nuevo_precio_producto_detalle: precio,
+                      precio_producto_detalle: precio_antiguo,
+                      foto_producto_detalle: foto_producto,
+                    ))),
             child: GridTile(
               footer: Container(
-                color: Colors.white70,
-                child: ListTile(
-                  leading: Text(
-                    nombre_producto,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  title: Text(
-                    "$precio€",
-                    style: TextStyle(
-                        color: Colors.red, fontWeight: FontWeight.w800),
-                  ),
-                  subtitle: Text(
-                    "$precio_antiguo€",
-                    style: TextStyle(
-                        color: Colors.black54,
-                        fontWeight: FontWeight.w800,
-                        decoration: TextDecoration.lineThrough),
-                  ),
-                ),
-              ),
+                  color: Colors.white,
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          nombre_producto,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                      ),
+                      Text(
+                        "$precio€",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
+                      )
+                    ],
+                  )),
               child: Image.asset(
                 foto_producto,
                 fit: BoxFit.cover,
