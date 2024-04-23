@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:tienda1/main.dart';
 
 class DetallesProducto extends StatefulWidget {
   //Variables para la pagina de producto
@@ -16,10 +18,10 @@ class DetallesProducto extends StatefulWidget {
   });
 
   @override
-  State<DetallesProducto> createState() => _MyWidgetState();
+  State<DetallesProducto> createState() => _EstadoProductos();
 }
 
-class _MyWidgetState extends State<DetallesProducto> {
+class _EstadoProductos extends State<DetallesProducto> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +29,12 @@ class _MyWidgetState extends State<DetallesProducto> {
         //Elevacion de la barra superior sobre el fondo
         elevation: 0.1,
         backgroundColor: Colors.red,
-        title: Text('Múdez', style: TextStyle(color: Colors.white)),
+        title: InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => HomePage())));
+            },
+            child: Text('Múdez', style: TextStyle(color: Colors.white))),
         actions: <Widget>[
           IconButton(
             icon: Icon(
@@ -279,7 +286,133 @@ class _MyWidgetState extends State<DetallesProducto> {
               child: Text("Provisional"),
             )
           ]),
+
+          Divider(),
+          Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Productos similares")),
+
+          //Productos recomendados
+          Container(
+            height: 360,
+            child: ProductosSimilares(),
+          )
         ],
+      ),
+    );
+  }
+}
+
+//Productos similares/recomendados
+class ProductosSimilares extends StatefulWidget {
+  const ProductosSimilares({super.key});
+
+  @override
+  State<ProductosSimilares> createState() => _EstadoProductoSimilares();
+}
+
+class _EstadoProductoSimilares extends State<ProductosSimilares> {
+  var lista_productos = [
+    {
+      "nombre": "Collar multicolor",
+      "foto":
+          "imagenes/productos/quenta/Archicos_quenta_nuevos_collar_multicolor_cereza.jpg",
+      "precio_antiguo": 30,
+      "precio": 15,
+    },
+    {
+      "nombre": "Collar",
+      "foto":
+          "imagenes/productos/quenta/Archicos_quenta_nuevos_collar_multicolor_cereza.jpg",
+      "precio_antiguo": 30,
+      "precio": 15,
+    },
+    {
+      "nombre": "Collar",
+      "foto":
+          "imagenes/productos/quenta/Archicos_quenta_nuevos_collar_multicolor_cereza.jpg",
+      "precio_antiguo": 30,
+      "precio": 15,
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      itemCount: lista_productos.length,
+      gridDelegate:
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      itemBuilder: (BuildContext context, int index) {
+        return ProdIndividualSimilar(
+          nombre_producto: lista_productos[index]["nombre"],
+          foto_producto: lista_productos[index]["foto"],
+          precio_antiguo: lista_productos[index]["precio_antiguo"],
+          precio: lista_productos[index]["precio"],
+        );
+      },
+    );
+  }
+}
+
+class ProdIndividualSimilar extends StatelessWidget {
+  //Variables del producto
+  final nombre_producto;
+  final foto_producto;
+  final precio_antiguo;
+  final precio;
+
+  const ProdIndividualSimilar({
+    super.key,
+    this.nombre_producto,
+    this.foto_producto,
+    this.precio_antiguo,
+    this.precio,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Hero(
+        tag: Text("hero 1"),
+        child: Material(
+          child: InkWell(
+            //Usamos función de flecha para acortar el código a escribir, context es la ruta actuasl del widget en la pagina, push indica que vamos a poner algo encima
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => DetallesProducto(
+                      //Parametros para el constructor de la pagina de producto
+                      nombre_producto_detalle: nombre_producto,
+                      nuevo_precio_producto_detalle: precio,
+                      precio_producto_detalle: precio_antiguo,
+                      foto_producto_detalle: foto_producto,
+                    ))),
+            child: GridTile(
+              footer: Container(
+                  color: Colors.white,
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          nombre_producto,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                      ),
+                      Text(
+                        "$precio€",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
+                      )
+                    ],
+                  )),
+              child: Image.asset(
+                foto_producto,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

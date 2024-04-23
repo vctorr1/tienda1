@@ -78,7 +78,7 @@ class ProdIndividual extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Hero(
-        tag: nombre_producto,
+        tag: Text("hero 1"),
         child: Material(
           child: InkWell(
             //Usamos función de flecha para acortar el código a escribir, context es la ruta actuasl del widget en la pagina, push indica que vamos a poner algo encima

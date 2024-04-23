@@ -4,6 +4,7 @@ import 'package:another_carousel_pro/another_carousel_pro.dart';
 //Imports de carpeta componentes
 import 'package:tienda1/componentes/listview_horizontal.dart';
 import 'package:tienda1/componentes/poductos.dart';
+import 'package:tienda1/paginas/carrito.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -44,6 +45,7 @@ class _MyHomePageState extends State<HomePage> {
         animationCurve: Curves.fastOutSlowIn,
         animationDuration: Duration(milliseconds: 1000),
         indicatorBgPadding: 6,
+        dotBgColor: Colors.transparent,
       ),
     );
 
@@ -66,7 +68,10 @@ class _MyHomePageState extends State<HomePage> {
               Icons.shopping_cart,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Carrito()));
+            },
           )
         ],
       ),
@@ -113,6 +118,17 @@ class _MyHomePageState extends State<HomePage> {
               child: ListTile(
                 title: Text('Pedidos'),
                 leading: Icon(Icons.shopping_basket),
+              ),
+            ),
+
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Carrito()));
+              },
+              child: ListTile(
+                title: Text('Carrito'),
+                leading: Icon(Icons.shopping_cart),
               ),
             ),
 
