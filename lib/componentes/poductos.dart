@@ -47,11 +47,14 @@ class _MyWidgetState extends State<Productos> {
       gridDelegate:
           const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (BuildContext context, int index) {
-        return ProdIndividual(
-          nombre_producto: lista_productos[index]["nombre"],
-          foto_producto: lista_productos[index]["foto"],
-          precio_antiguo: lista_productos[index]["precio_antiguo"],
-          precio: lista_productos[index]["precio"],
+        return Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: ProdIndividual(
+            nombre_producto: lista_productos[index]["nombre"],
+            foto_producto: lista_productos[index]["foto"],
+            precio_antiguo: lista_productos[index]["precio_antiguo"],
+            precio: lista_productos[index]["precio"],
+          ),
         );
       },
     );

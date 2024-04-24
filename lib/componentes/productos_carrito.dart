@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class ProductosCarrito extends StatefulWidget {
   const ProductosCarrito({super.key});
@@ -71,30 +72,45 @@ class ProdCarritoIndividual extends StatelessWidget {
     return Card(
       child: ListTile(
         //Si hay problemas con las imagenes del carrito, anadir limites de tamano a la imagen
-        leading: Image.asset(carrito_foto_producto),
+        leading: Image.asset(
+          carrito_foto_producto,
+          fit: BoxFit.fill,
+        ),
         title: Text(carrito_nombre_producto),
         subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             //Celdas dentro de columna para formato
             Row(
               children: <Widget>[
                 //Tamaño
-                Expanded(
+                Padding(
+                  padding: const EdgeInsets.all(0),
                   child: Text(
-                    "Tamaño: " + carrito_tamano_producto,
+                    "Tamaño: ",
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: Text(
+                    carrito_tamano_producto,
                     style: TextStyle(color: Colors.red),
                   ),
                 ),
 
                 //Color
-                Expanded(
-                  child: Text("Color: " + carrito_color_producto),
-                ),
-
-                // Cantidad
-                Expanded(
+                Padding(
+                  padding: const EdgeInsets.all(0),
                   child: Text(
-                      " Cantidad: " + carrito_cantidad_producto.toString()),
+                    "Color: ",
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: Text(
+                    carrito_color_producto,
+                    style: TextStyle(color: Colors.red),
+                  ),
                 ),
               ],
             ),
@@ -109,15 +125,23 @@ class ProdCarritoIndividual extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.red),
               ),
-            )
+            ),
+
+            Container(
+              alignment: Alignment.centerRight,
+              child: Column(children: <Widget>[
+                IconButton(onPressed: () {}, icon: Icon(Icons.arrow_drop_up)),
+                Text(carrito_cantidad_producto.toString()),
+                IconButton(onPressed: () {}, icon: Icon(Icons.arrow_drop_down))
+              ]),
+            ),
           ],
         ),
-        trailing: Column(
-          children: <Widget>[
-            IconButton(icon: Icon(Icons.arrow_drop_up), onPressed: () {}),
-            IconButton(icon: Icon(Icons.arrow_drop_down), onPressed: () {}),
-          ],
-        ),
+        //trailing: Column(children: <Widget>[
+        //  IconButton(onPressed: () {}, icon: Icon(Icons.arrow_drop_up)),
+        //  Text("1"),
+        //  IconButton(onPressed: () {}, icon: Icon(Icons.arrow_drop_down))
+        //]),
       ),
     );
   }
