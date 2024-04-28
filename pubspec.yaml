@@ -1,4 +1,4 @@
-name: tienda1
+name: tienda2
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -31,13 +31,13 @@ dependencies:
   flutter:
     sdk: flutter
   another_carousel_pro: ^1.0.2
+  dcdg: ^4.1.0
+  firebase_core: ^2.30.1
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
-  dcdg: ^4.1.0
-  firebase_core: ^2.30.1
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +79,7 @@ flutter:
     - imagenes/categorias/diamond.png
     - imagenes/categorias/photo.png
     - imagenes/categorias/brush.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

@@ -1,0 +1,150 @@
+@startuml test
+set namespaceSeparator ::
+
+class "tienda1::componentes::listview_horizontal.dart::ListaHorizontal" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tienda1::componentes::listview_horizontal.dart::ListaHorizontal"
+
+class "tienda1::componentes::listview_horizontal.dart::Categoria" {
+  +String rutaImagen
+  +String textoImagen
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tienda1::componentes::listview_horizontal.dart::Categoria"
+
+class "tienda1::componentes::poductos.dart::Productos" {
+  +State<Productos> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tienda1::componentes::poductos.dart::Productos"
+
+class "tienda1::componentes::poductos.dart::_MyWidgetState" {
+  +List<Map<String, Object>> lista_productos
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "tienda1::componentes::poductos.dart::_MyWidgetState"
+
+class "tienda1::componentes::poductos.dart::ProdIndividual" {
+  +dynamic nombre_producto
+  +dynamic foto_producto
+  +dynamic precio_antiguo
+  +dynamic precio
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tienda1::componentes::poductos.dart::ProdIndividual"
+
+class "tienda1::componentes::productos_carrito.dart::ProductosCarrito" {
+  +State<ProductosCarrito> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tienda1::componentes::productos_carrito.dart::ProductosCarrito"
+
+class "tienda1::componentes::productos_carrito.dart::_ProductosCarritoState" {
+  +List<Map<String, Object>> productos_carro
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "tienda1::componentes::productos_carrito.dart::_ProductosCarritoState"
+
+class "tienda1::componentes::productos_carrito.dart::ProdCarritoIndividual" {
+  +dynamic carrito_nombre_producto
+  +dynamic carrito_foto_producto
+  +dynamic carrito_tamano_producto
+  +dynamic carrito_precio
+  +dynamic carrito_color_producto
+  +dynamic carrito_cantidad_producto
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tienda1::componentes::productos_carrito.dart::ProdCarritoIndividual"
+
+class "tienda1::firebase_options.dart::DefaultFirebaseOptions" {
+  {static} +FirebaseOptions android
+  {static} +FirebaseOptions ios
+  {static} +FirebaseOptions currentPlatform
+}
+
+"tienda1::firebase_options.dart::DefaultFirebaseOptions" o-- "firebase_core_platform_interface::firebase_core_platform_interface.dart::FirebaseOptions"
+
+class "tienda1::home.dart::HomePage" {
+  +State<HomePage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tienda1::home.dart::HomePage"
+
+class "tienda1::home.dart::_MyWidgetState" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "tienda1::home.dart::_MyWidgetState"
+
+class "tienda1::main.dart::HomePage" {
+  +State<HomePage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tienda1::main.dart::HomePage"
+
+class "tienda1::main.dart::_MyHomePageState" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "tienda1::main.dart::_MyHomePageState"
+
+class "tienda1::paginas::carrito.dart::Carrito" {
+  +State<Carrito> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tienda1::paginas::carrito.dart::Carrito"
+
+class "tienda1::paginas::carrito.dart::_CarritoState" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "tienda1::paginas::carrito.dart::_CarritoState"
+
+class "tienda1::paginas::detalles_producto.dart::DetallesProducto" {
+  +dynamic nombre_producto_detalle
+  +dynamic nuevo_precio_producto_detalle
+  +dynamic precio_producto_detalle
+  +dynamic foto_producto_detalle
+  +State<DetallesProducto> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tienda1::paginas::detalles_producto.dart::DetallesProducto"
+
+class "tienda1::paginas::detalles_producto.dart::_EstadoProductos" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "tienda1::paginas::detalles_producto.dart::_EstadoProductos"
+
+class "tienda1::paginas::detalles_producto.dart::ProductosSimilares" {
+  +State<ProductosSimilares> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tienda1::paginas::detalles_producto.dart::ProductosSimilares"
+
+class "tienda1::paginas::detalles_producto.dart::_EstadoProductoSimilares" {
+  +List<Map<String, Object>> lista_productos
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "tienda1::paginas::detalles_producto.dart::_EstadoProductoSimilares"
+
+class "tienda1::paginas::detalles_producto.dart::ProdIndividualSimilar" {
+  +dynamic nombre_producto
+  +dynamic foto_producto
+  +dynamic precio_antiguo
+  +dynamic precio
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tienda1::paginas::detalles_producto.dart::ProdIndividualSimilar"
+
+
+@enduml

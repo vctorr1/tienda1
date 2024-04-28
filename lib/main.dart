@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 
-//Imports de carpeta componentes
-import 'package:tienda1/componentes/listview_horizontal.dart';
-import 'package:tienda1/componentes/poductos.dart';
-import 'package:tienda1/paginas/carrito.dart';
+//Imports de Firebase
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+//Imports de carpeta componentes
+import 'package:tienda2/componentes/listview_horizontal.dart';
+import 'package:tienda2/componentes/poductos.dart';
+import 'package:tienda2/componentes/productos_carrito.dart';
+import 'package:tienda2/paginas/carrito.dart';
+
+//Imports de generador de diagramas
+import 'package:dcdg/dcdg.dart';
+
+void main() async {
+  // Inicialización de Firebase
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: HomePage(),

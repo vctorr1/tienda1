@@ -1,10 +1,10 @@
-# App E-Commerce
+# tienda2
 
-Proyecto final de DAM de Víctor Ríos.
+A new Flutter project.
 
-## Widgets utilizados
+## Getting Started
 
-https://pub.dev/packages/another_carousel_pro
+This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 

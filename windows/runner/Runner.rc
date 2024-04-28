@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "vitor.rios" "\0"
-            VALUE "FileDescription", "tienda1" "\0"
+            VALUE "CompanyName", "com.example" "\0"
+            VALUE "FileDescription", "tienda2" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "tienda1" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 vitor.rios. All rights reserved." "\0"
-            VALUE "OriginalFilename", "tienda1.exe" "\0"
-            VALUE "ProductName", "tienda1" "\0"
+            VALUE "InternalName", "tienda2" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
+            VALUE "OriginalFilename", "tienda2.exe" "\0"
+            VALUE "ProductName", "tienda2" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

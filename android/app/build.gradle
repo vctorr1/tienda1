@@ -1,8 +1,5 @@
 plugins {
     id "com.android.application"
-    // START: FlutterFire Configuration
-    id 'com.google.gms.google-services'
-    // END: FlutterFire Configuration
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
 }
@@ -26,7 +23,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.example.tienda1"
+    namespace "com.example.tienda2"
     compileSdk flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 

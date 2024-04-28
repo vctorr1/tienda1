@@ -1,6 +1,6 @@
 {
-    "name": "tienda1",
-    "short_name": "tienda1",
+    "name": "tienda2",
+    "short_name": "tienda2",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

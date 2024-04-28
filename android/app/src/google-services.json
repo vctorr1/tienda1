@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "800568055023",
+    "project_id": "tienda-mudez",
+    "storage_bucket": "tienda-mudez.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:800568055023:android:82e1c050b07e74bf32771a",
+        "android_client_info": {
+          "package_name": "com.example.tienda2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5FMie7rRzZONevp9Qup50vX8lbsH2OJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tienda1/componentes/productos_carrito.dart';
+import 'package:tienda2/componentes/productos_carrito.dart';
 
 class Carrito extends StatefulWidget {
   const Carrito({super.key});
